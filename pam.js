@@ -1,4 +1,6 @@
-export function pamAuthenticatePromise(options) {
+
+
+const pamAuthenticatePromise = (options) => {
     const username = options.username;
     const password = options.password;
 
@@ -7,8 +9,13 @@ export function pamAuthenticatePromise(options) {
     });
 }
 
-export function pamAuthenticate(options, callback) {
+const pamAuthenticate = (options, callback) => {
     pamAuthenticatePromise(options)
         .then((code) => callback(null, code))
         .catch((err) => callback(err, err.code));
 }
+
+module.exports = {
+    pamAuthenticate,
+    pamAuthenticatePromise,
+};

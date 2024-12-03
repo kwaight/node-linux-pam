@@ -1,6 +1,6 @@
 {
   "name": "@kwaight/node-linux-pam",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "gypfile": true,
   "description": "Asynchronous PAM authentication for NodeJS",
   "private": false,
