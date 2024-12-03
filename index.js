@@ -1,4 +1,4 @@
-let pack = './pam';
+let pack = '@kwaight/node-linux-pam/pam';
 if (process.platform !== 'darwin') {
   pack = 'bindings';
 }
