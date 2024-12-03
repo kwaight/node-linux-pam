@@ -1,4 +1,4 @@
-const pam = require('bindings')('node-linux-pam');
+const pam = process.platform === 'darwin' ? require('./pam') : require('bindings')('node-linux-pam');
 const PamError = require('./pam-error');
 
 /**

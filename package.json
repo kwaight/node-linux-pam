@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "install": "node-pre-gyp install --fallback-to-build",
+    "install": "./scripts/install.sh",
     "lint": "npm run lint:cpplint && npm run lint:prettier",
     "lint:cpplint": "cpplint",
     "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'"
