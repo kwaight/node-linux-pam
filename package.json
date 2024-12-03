@@ -1,5 +1,5 @@
 {
-  "name": "@kwaight/node-linux-pam",
+  "name": "node-linux-pam",
   "version": "0.3.0",
   "gypfile": true,
   "description": "Asynchronous PAM authentication for NodeJS",
@@ -26,7 +26,7 @@
     "nlp": "./cli.js"
   },
   "binary": {
-    "module_name": "@kwaight/node-linux-pam",
+    "module_name": "node-linux-pam",
     "module_path": "./build/Release/",
     "remote_path": "./kwaight/{module_name}/releases/download/{version}",
     "host": "https://github.com"
