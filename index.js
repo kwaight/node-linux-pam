@@ -1,21 +1,6 @@
-const pamAuthenticatePromise = (options) => {
-  const username = options.username;
-  const password = options.password;
 
-  return new Promise((resolve, reject) => {
-    resolve(PAM_SUCCESS);
-  });
-}
-
-const pamAuthenticate = (options, callback) => {
-  pamAuthenticatePromise(options)
-    .then((code) => callback(null, code))
-    .catch((err) => callback(err, err.code));
-}
-
-let pam = {
-  pamAuthenticate,
-  pamAuthenticatePromise,
+let pam = (options, callback) => {
+  callback(null, 0);
 }
 
 if (process.platform !== 'darwin') {
