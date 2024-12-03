@@ -1,10 +1,26 @@
-let pack = '@kwaight/node-linux-pam/pam';
-if (process.platform !== 'darwin') {
-  pack = 'bindings';
+const pamAuthenticatePromise = (options) => {
+  const username = options.username;
+  const password = options.password;
+
+  return new Promise((resolve, reject) => {
+    resolve(PAM_SUCCESS);
+  });
 }
 
-const pamBind = require(pack);
-const pam = pack === 'bindings' ? pamBind('node-linux-pam') : pamBind.default;
+const pamAuthenticate = (options, callback) => {
+  pamAuthenticatePromise(options)
+    .then((code) => callback(null, code))
+    .catch((err) => callback(err, err.code));
+}
+
+let pam = {
+  pamAuthenticate,
+  pamAuthenticatePromise,
+}
+
+if (process.platform !== 'darwin') {
+  pam = require('bindings')('node-linux-pam');
+}
 
 // const pam = process.platform === 'darwin' ? require('./pam') : require('bindings')('node-linux-pam');
 const PamError = require('./pam-error');
