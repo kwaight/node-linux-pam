@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "install": "./scripts/install.sh",
+    "install": "if [[ \"$OSTYPE\" == \"darwin\"* ]]; then echo \"Skipping installation on macOS\"; exit 0; fi; node-pre-gyp install --fallback-to-build",
     "lint": "npm run lint:cpplint && npm run lint:prettier",
     "lint:cpplint": "cpplint",
     "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'"
