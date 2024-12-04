@@ -5,6 +5,7 @@
   "description": "Asynchronous PAM authentication for NodeJS",
   "private": false,
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "install": "if [[ \"$OSTYPE\" == \"darwin\"* ]]; then echo \"Skipping installation on macOS\"; exit 0; fi; node-pre-gyp install --fallback-to-build",
