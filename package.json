@@ -11,7 +11,7 @@
     "lint": "npm run lint:cpplint && npm run lint:prettier",
     "lint:cpplint": "cpplint",
     "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'",
-    "publish": "",
+    "publish": "npm publish --access public",
     "version:minor": "npm version minor && git push --follow-tags",
     "version:major": "npm version major && git push --follow-tags"
   },
