@@ -23,7 +23,7 @@
     "binding.gyp",
     "pam-error.js",
     "index.d.ts",
-    "pam.errors.js",
+    "pam-errors.js",
     "index.js",
     "pam.js",
     "test/"
