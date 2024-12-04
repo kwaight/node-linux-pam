@@ -152,19 +152,20 @@ describe('pamAuthenticate', () => {
   });
 
   describe('when there is a user with an expired password', () => {
+    const username = USERNAME_OF_AN_EXISTING_USER + 'expired2';
     beforeAll(() => {
       // Create expired user
-      expiredUserAdd(USERNAME_OF_AN_EXISTING_USER, PASSWORD_OF_AN_EXISTING_USER);
+      expiredUserAdd(username, PASSWORD_OF_AN_EXISTING_USER);
     });
 
     afterAll(() => {
       // Delete user
-      userDel(USERNAME_OF_AN_EXISTING_USER);
+      userDel(username);
     });
 
     test(`should return an error with code ${pamErrors.PAM_NEW_AUTHTOK_REQD}`, (done) => {
       const options = {
-        username: USERNAME_OF_AN_EXISTING_USER,
+        username: username,
         password: PASSWORD_OF_AN_EXISTING_USER,
       };
 

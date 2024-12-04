@@ -11,9 +11,8 @@
     "lint": "npm run lint:cpplint && npm run lint:prettier",
     "lint:cpplint": "cpplint",
     "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'",
-    "publish": "npm publish --access public",
-    "version:minor": "npm version minor && git push --follow-tags",
-    "version:major": "npm version major && git push --follow-tags"
+    "publish:minor": "npm version minor && git push --follow-tags && npm publish --access public",
+    "publish:major": "npm version minor && git push --follow-tags && npm publish --access public"
   },
   "engines": {
     "node": ">=8.6.0"

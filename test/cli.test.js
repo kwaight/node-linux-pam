@@ -23,21 +23,23 @@ describe('CLI', () => {
   });
 
   describe('when there is a user', () => {
+    const username = USERNAME_OF_AN_EXISTING_USER + '2';
     beforeAll(() => {
       // Create user
-      userAdd(USERNAME_OF_AN_EXISTING_USER, PASSWORD_OF_AN_EXISTING_USER);
+      userAdd(username, PASSWORD_OF_AN_EXISTING_USER);
     });
 
     afterAll(() => {
       // Delete user
-      userDel(USERNAME_OF_AN_EXISTING_USER);
+      userDel(username);
     });
 
     test(`should return code ${pamErrors.PAM_SUCCESS} with the correct password`, async () => {
       const { code, stdout } = await cli({
-        username: USERNAME_OF_AN_EXISTING_USER,
+        username: username,
         password: PASSWORD_OF_AN_EXISTING_USER,
       });
+      console.log('stdout', stdout);
 
       expect(code).toBe(0);
       expect(stdout).toBe('success');
@@ -45,7 +47,7 @@ describe('CLI', () => {
 
     test(`should return PamError with code ${pamErrors.PAM_AUTH_ERR} on wrong password`, async () => {
       const { code, stderr } = await cli({
-        username: USERNAME_OF_AN_EXISTING_USER,
+        username: username,
         password: BAD_PASSWORD_OF_AN_EXISTING_USER,
       });
 
@@ -57,17 +59,17 @@ describe('CLI', () => {
   describe('when there is a user with an expired password', () => {
     beforeAll(() => {
       // Create expired user
-      expiredUserAdd(USERNAME_OF_AN_EXISTING_USER, PASSWORD_OF_AN_EXISTING_USER);
+      expiredUserAdd(username, PASSWORD_OF_AN_EXISTING_USER);
     });
 
     afterAll(() => {
       // Delete user
-      userDel(USERNAME_OF_AN_EXISTING_USER);
+      userDel(username);
     });
 
     test(`should return an error with code ${pamErrors.PAM_NEW_AUTHTOK_REQD}`, async () => {
       const { code, stderr } = await cli({
-        username: USERNAME_OF_AN_EXISTING_USER,
+        username: username,
         password: PASSWORD_OF_AN_EXISTING_USER,
       });
 

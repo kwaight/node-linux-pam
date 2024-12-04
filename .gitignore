@@ -8,13 +8,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 jest_*
+coverage
 
 # Runtime data
 pids
 *.pid
 *.seed
 *.pid.lock
-
+/test/user.json
 /build
 
 # Dependency directories

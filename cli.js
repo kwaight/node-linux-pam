@@ -72,5 +72,6 @@ pamAuthenticatePromise({ username, password, serviceName, remoteHost })
 
     console.log(stdOut);
     console.error(stdErr);
+
     process.exit(1);
   });

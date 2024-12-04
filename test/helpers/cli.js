@@ -19,7 +19,8 @@ module.exports = function(params, cwd) {
   }
 
   return new Promise((resolve) => {
-    exec(`node --no-warnings ${path.resolve('./cli.js')} ${args.join(' ')}`, { cwd }, (error, stdout, stderr) => {
+    exec(`NODE_ENV=test node --no-warnings ${path.resolve('./cli.js')} ${args.join(' ')}`, { cwd }, (error, stdout, stderr) => {
+      
       resolve({
         error,
         code: error && error.code ? error.code : 0,
