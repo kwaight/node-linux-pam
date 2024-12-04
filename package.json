@@ -10,7 +10,10 @@
     "install": "if [[ \"$OSTYPE\" == \"darwin\"* ]]; then echo \"Skipping installation on macOS\"; exit 0; fi; node-pre-gyp install --fallback-to-build",
     "lint": "npm run lint:cpplint && npm run lint:prettier",
     "lint:cpplint": "cpplint",
-    "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'"
+    "lint:prettier": "prettier --check './**/*.{js,json,md,ts}'",
+    "publish": "",
+    "version:minor": "npm version minor && git push --follow-tags",
+    "version:major": "npm version major && git push --follow-tags"
   },
   "engines": {
     "node": ">=8.6.0"
