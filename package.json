@@ -22,7 +22,11 @@
     "cli.js",
     "binding.gyp",
     "pam-error.js",
-    "index.d.ts"
+    "index.d.ts",
+    "pam.errors.js",
+    "index.js",
+    "pam.js",
+    "test/"
   ],
   "bin": {
     "nlp": "./cli.js"
